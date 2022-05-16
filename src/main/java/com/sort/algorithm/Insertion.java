@@ -5,16 +5,16 @@ import com.sort.algorithm.contract.Sort;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Insertion implements Sort {
+public class Insertion implements Sort{
 
     @Override
-    public <T extends Double> List<T> sort(List<T> list) {
+    public <T extends Comparable<T>> List<T> sort(List<T> list) {
 
         for(int i = 1; i < list.size(); i++){
             T unsortedElement = list.get(i);
-            Integer smallerElementPosition = i;
+            int smallerElementPosition = i;
             for(int j = i; j >= 0; j--) {
-                if(unsortedElement.doubleValue() < list.get(j).doubleValue()){
+                if(unsortedElement.compareTo(list.get(j)) < 0){
                     smallerElementPosition = j;
                 }
             }

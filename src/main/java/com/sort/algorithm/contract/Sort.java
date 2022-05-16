@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface Sort {
 
-    <T extends Double> List<T> sort(List<T> list);
+    <T extends Comparable<T>> List<T> sort(List<T> list);
 
 }

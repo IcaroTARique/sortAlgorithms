@@ -8,7 +8,7 @@ import java.util.List;
 public class Merge implements Sort {
 
     @Override
-    public <T extends Double> List<T> sort(List<T> list) {
+    public <T extends Comparable<T>> List<T> sort(List<T> list) {
 
         if(list.size() <= 1) {
             return list;
@@ -17,19 +17,19 @@ public class Merge implements Sort {
         List<T> leftList = this.sort(list.subList(0, (list.size()/2)));
         List<T> rightList = this.sort(list.subList(list.size()/2, list.size()));
 
-        List<T> mergeList = this.merge(list, leftList, rightList);
+        List<T> mergeList = this.merge(leftList, rightList);
 
         return mergeList;
     }
 
-    private <T extends Double> List<T> merge(List<T> list, List<T> leftList, List<T> rightList) {
+    private <T extends Comparable> List<T> merge(List<T> leftList, List<T> rightList) {
         List<T> aux = new ArrayList<>();
 
-        Integer i = 0;
-        Integer j = 0;
+        int i = 0;
+        int j = 0;
 
         while(i < leftList.size() && j < rightList.size()) {
-            if(leftList.get(i).doubleValue() < rightList.get(j).doubleValue()){
+            if(leftList.get(i).compareTo(rightList.get(j)) < 0){
                 aux.add(leftList.get(i));
                 i++;
             } else {

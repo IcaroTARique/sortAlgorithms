@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Swap {
 
-    <E extends Double> List<E> swap(List<E> list, Integer i, Integer j);
+    <E> List<E> swap(List<E> list, Integer i, Integer j);
 }
