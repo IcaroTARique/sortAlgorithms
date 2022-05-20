@@ -1,6 +1,7 @@
 import com.sort.Service;
 import com.sort.algorithm.Insertion;
 import com.sort.algorithm.Merge;
+import com.sort.algorithm.Quick;
 import com.sort.algorithm.Selection;
 import com.sort.algorithm.contract.Sort;
 
@@ -13,7 +14,8 @@ public class Main {
         List<Sort> sortMethodList = new ArrayList<>(List.of(
                 new Insertion(),
                 new Selection(),
-                new Merge()
+                new Merge(),
+                new Quick()
         ));
 
         sortMethodList.stream().forEach(e -> new Service(e).toSort());

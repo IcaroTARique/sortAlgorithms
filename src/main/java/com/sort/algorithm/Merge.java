@@ -22,7 +22,7 @@ public class Merge implements Sort {
         return mergeList;
     }
 
-    private <T extends Comparable> List<T> merge(List<T> leftList, List<T> rightList) {
+    private <T extends Comparable<T>> List<T> merge(List<T> leftList, List<T> rightList) {
         List<T> aux = new ArrayList<>();
 
         int i = 0;
@@ -45,7 +45,6 @@ public class Merge implements Sort {
             aux.add(rightList.get(j));
             j++;
         }
-
         return aux;
     }
 }
