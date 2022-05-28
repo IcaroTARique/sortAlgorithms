@@ -1,11 +1,10 @@
 package com.sort.algorithm;
 
-import com.sort.algorithm.contract.Sort;
+import com.sort.algorithm.contract.SortCompare;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class Insertion implements Sort{
+public class Insertion implements SortCompare {
 
     @Override
     public <T extends Comparable<T>> List<T> sort(List<T> list) {

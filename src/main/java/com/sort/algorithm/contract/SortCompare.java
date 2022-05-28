@@ -2,7 +2,7 @@ package com.sort.algorithm.contract;
 
 import java.util.List;
 
-public interface Sort {
+public interface SortCompare {
 
     <T extends Comparable<T>> List<T> sort(List<T> list);
 

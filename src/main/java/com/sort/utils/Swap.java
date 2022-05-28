@@ -1,4 +1,4 @@
-package com.sort.algorithm.contract;
+package com.sort.utils;
 
 import java.util.List;
 

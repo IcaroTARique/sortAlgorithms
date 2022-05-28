@@ -1,9 +1,7 @@
 import com.sort.Service;
-import com.sort.algorithm.Insertion;
-import com.sort.algorithm.Merge;
-import com.sort.algorithm.Quick;
-import com.sort.algorithm.Selection;
-import com.sort.algorithm.contract.Sort;
+import com.sort.algorithm.*;
+import com.sort.algorithm.contract.SortCompare;
+import com.sort.algorithm.contract.SortCount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +9,25 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<Sort> sortMethodList = new ArrayList<>(List.of(
+        List<Integer> toSortIntegerList = new ArrayList<>(List.of(10, 6, 4, 17, 5, 12, -15, 0, 8, 6, 0, 15, 80, 69, 32, 44, 93, 5, -65, -33));
+        List<Double> toSortDoubleList = new ArrayList<>(List.of(10.0, 6.0, 4.0, 17.0, 5.0, 12.0, -15.0, 0.0));
+        List<Double> toSortDoubleDecimalList = new ArrayList<>(List.of(14.4, 6.789, 4.9, 17.15, 5.667, 12.564, -15.001, 0.3));
+        List<String> toSortStringList = new ArrayList<>(List.of("Isaias", "Fernão", "Isabela","Alef", "Alan"));
+
+        List<SortCompare> sortCompareList = new ArrayList<>(List.of(
                 new Insertion(),
                 new Selection(),
                 new Merge(),
                 new Quick()
         ));
 
-        sortMethodList.stream().forEach(e -> new Service(e).toSort());
+        List<SortCount> sortCountList = new ArrayList<>(List.of(
+                new Counting()
+        ));
+
+        sortCompareList.stream().forEach(e -> new Service(e).toSortCompare(new ArrayList<>(toSortDoubleDecimalList)));
+        sortCountList.stream().forEach(e -> new Service(e).toSortCount(new ArrayList<>(toSortDoubleDecimalList)));
+
+        //new Service(new Counting()).toTest(toSortIntegerList);
     }
 }

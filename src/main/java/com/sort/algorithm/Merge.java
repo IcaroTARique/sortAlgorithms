@@ -1,11 +1,11 @@
 package com.sort.algorithm;
 
-import com.sort.algorithm.contract.Sort;
+import com.sort.algorithm.contract.SortCompare;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Merge implements Sort {
+public class Merge implements SortCompare {
 
     @Override
     public <T extends Comparable<T>> List<T> sort(List<T> list) {

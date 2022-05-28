@@ -1,11 +1,11 @@
 package com.sort.algorithm;
 
-import com.sort.algorithm.contract.Sort;
-import com.sort.algorithm.contract.Swap;
+import com.sort.algorithm.contract.SortCompare;
+import com.sort.utils.Swap;
 
 import java.util.List;
 
-public class Quick implements Sort, Swap {
+public class Quick implements SortCompare, Swap {
     @Override
     public <T extends Comparable<T>> List<T> sort(List<T> list) {
 
