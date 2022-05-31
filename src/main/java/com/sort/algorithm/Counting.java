@@ -1,19 +1,18 @@
 package com.sort.algorithm;
 
 import com.sort.algorithm.contract.SortCount;
-import com.sort.utils.CountingConverter;
+import com.sort.utils.Converter;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Counting extends CountingConverter implements SortCount {
+public class Counting extends Converter implements SortCount {
 
-    CountingConverter toListInteger = new CountingConverter();
+    Converter toListInteger = new Converter();
 
     @Override
-    public <T extends Number & Comparable> List<?> sort(List<T> list) {
-
+    public <T extends Number & Comparable<T>> List<?> sort(List<T> list) {
 
         List<Integer> valuesToSort = toListInteger.convertToInteger(list);
         List<Integer> positions;
@@ -38,5 +37,32 @@ public class Counting extends CountingConverter implements SortCount {
         }
 
         return toListInteger.returnToOriginal(response);
+    }
+
+    public List<Integer> countingSortForRadix(List<Integer> valuesToSort, Integer n, Integer k){
+
+        List<Integer> positions = new ArrayList<>(Collections.nCopies(10, 0));
+        List<Integer> response = new ArrayList<>(Collections.nCopies(n, 0));
+
+        for(int i = 0; i < n; i++) {
+            positions.set((valuesToSort.get(i)/k % 10), positions.get((valuesToSort.get(i)/k % 10)) + 1);
+        }
+
+        for(int i = 1; i < positions.size(); i++) {
+            positions.set(i, positions.get(i) + positions.get(i-1));
+        }
+
+        /**
+         * The inverted sequence, in the next for, is made that way because when we try to access an element of list to
+         * be sorted (valuesToSort) in which exists another element of the same value, this access made through the position
+         * list, assures that we are going to work with the first (and consequently smaller) element in the array to be sorted.
+         */
+        for(int i = response.size()-1; i >= 0; i--) {
+            response.set(positions.get((valuesToSort.get(i)/k % 10))-1,valuesToSort.get(i));
+            positions.set((valuesToSort.get(i)/k % 10), positions.get((valuesToSort.get(i)/k % 10))-1);
+        }
+
+        System.out.println(response);
+        return response;
     }
 }

@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface SortCount{
 
-    <T extends Number & Comparable> List<?> sort(List<T> list);
+    <T extends Number & Comparable<T>> List<?> sort(List<T> list);
 }

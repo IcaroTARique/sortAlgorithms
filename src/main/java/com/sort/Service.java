@@ -25,13 +25,7 @@ public class Service {
 
     }
 
-    public void toTest(List<Integer> toSortList) {
-
-        System.out.printf("%-10s :: ORIGINAL :: %s \n",sortCountMethod.getClass().getSimpleName(),toSortList);
-        System.out.printf("%-10s :: ORDERED  :: %s \n",sortCountMethod.getClass().getSimpleName(),this.sortCountMethod.sort(toSortList));
-    }
-
-    public <T extends Number & Comparable> void toSortCount(List<T> toSortList) {
+    public <T extends Number & Comparable<T>> void toSortCount(List<T> toSortList) {
 
         System.out.printf("%-10s :: ORIGINAL :: %s \n",sortCountMethod.getClass().getSimpleName(),toSortList);
         System.out.printf("%-10s :: ORDERED  :: %s \n",
