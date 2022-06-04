@@ -23,7 +23,8 @@ public class Main {
 
         List<SortCount> sortCountList = new ArrayList<>(List.of(
                 new Counting(),
-                new Radix()
+                new Radix(),
+                new Bucket()
         ));
 
         sortCompareList.forEach(e -> new Service(e).toSortCompare(new ArrayList<>(toSortDoubleDecimalList)));

@@ -23,8 +23,8 @@ public class Counting extends Converter implements SortCount {
 
         positions = new ArrayList<>(Collections.nCopies(max - min + 1, 0));
 
-        for(int i = 0; i < valuesToSort.size(); i++) {
-            positions.set(valuesToSort.get(i), positions.get(valuesToSort.get(i)) + 1);
+        for (Integer integer : valuesToSort) {
+            positions.set(integer, positions.get(integer) + 1);
         }
 
         for(int i = 1; i < positions.size(); i++) {
@@ -62,7 +62,6 @@ public class Counting extends Converter implements SortCount {
             positions.set((valuesToSort.get(i)/k % 10), positions.get((valuesToSort.get(i)/k % 10))-1);
         }
 
-        System.out.println(response);
         return response;
     }
 }

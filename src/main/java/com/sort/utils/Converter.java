@@ -22,8 +22,7 @@ public class Converter {
         this.min = Collections.min(listOfIntegers);
 
         if(list.get(0).getClass().getSimpleName().equals("Integer") && min.compareTo(0) < 0) {
-            List<Integer> normalizedValues = listOfIntegers.stream().map(e -> e - min).toList();
-            response = normalizedValues;
+            response = listOfIntegers.stream().map(e -> e - min).toList();
 
         } else if (list.get(0).getClass().getSimpleName().equals("Double")){
 
@@ -48,6 +47,10 @@ public class Converter {
         }
 
         return response;
+    }
+
+    public Double getExponent() {
+        return exponent;
     }
 
     public List<?> returnToOriginal(List<Integer> list) {
